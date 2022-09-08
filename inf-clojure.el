@@ -702,7 +702,8 @@ to continue it."
    ((string-prefix-p "inf-clojure-" (symbol-name (or this-command last-command)))
     ;; Remove subprompts and prepend a newline to the output string
     (inf-clojure-chomp (concat "\n" (inf-clojure-remove-subprompts str))))
-   (t str)))
+   ;((string-match inf-clojure-prompt str) "")
+   (t (concat "\n" str))))
 
 (defun inf-clojure-clear-repl-buffer ()
   "Clear the REPL buffer."
